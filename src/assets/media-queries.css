@@ -1,0 +1,10 @@
+/******* MOBILE *******/
+
+/*portrait*/
+@media screen and (max-width: 768px) {
+  /* Styles pour les écrans de 768px de largeur ou moins */
+}
+/*landscape*/
+@media screen and (min-width: 768px) and (orientation: landscape) {
+  /* Styles pour les écrans en mode paysage avec une largeur minimale de 768px */
+}

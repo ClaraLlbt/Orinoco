@@ -1,0 +1,40 @@
+@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&display=swap');
+
+#app {
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+}
+
+a, .nav-link{
+  text-decoration: none;
+  color: #00003A;
+  transition: 0.4s;
+}
+li{ color:white;}
+a:hover, .nav-link:hover{ 
+  color: white;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: #E20000;
+    color: white;
+    transition: 0.4s;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  /* #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  } */
+}
