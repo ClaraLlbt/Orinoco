@@ -2,16 +2,24 @@
 import Articles from '@/components/Articles.vue'
 import About from '../components/About.vue'
 import Banner from '../components/Banner.vue'
-import MvpRibbon from '../components/MvpRibbon.vue'
 import Navbar from '../components/Navbar.vue'
+import axios from 'axios'
+
+import { mapActions } from 'vuex';
+
 export default {
-  components: { Navbar, Articles, About, Banner, MvpRibbon }
+  components: { Navbar, Articles, About, Banner },
+  methods:{
+    ...mapActions(['addToCaddy']),
+    addToCaddy(article) {
+      this.addToCaddy(article)
+    },
+    
+  }
 }
 </script>
 
 <template>
-  <!-- //Ruban MVP -->
-  <!-- <MvpRibbon/> -->
   <header>
     <Navbar />
 
@@ -33,8 +41,8 @@ export default {
             <p class="content">{{ article.description }}</p>
           </div>
           <div class="row btns">
-            <button class="btn col"><router-link :to="{ name: 'ProductSheet', params: { id: article._id } }" class="btn read-more stretched-link">SEE MORE</router-link></button>
-            <button class="btn col">{{ article.price/100 + " € " }}<i class="bi bi-bag-plus"></i></button>
+            <button class="btn col"><router-link :to="{ name: 'ProductSheet', params: { id: article._id } }" class="btn read-more">SEE MORE</router-link></button>
+            <button id="addToCaddy" @click="addToCaddy(article)" class="btn col">{{ article.price/100 + " € " }}<i class="bi bi-bag-plus"></i></button>
           </div>  
         </div>
       </template>

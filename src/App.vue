@@ -1,11 +1,12 @@
 <script setup>
 import { RouterView } from 'vue-router'
+import Caddy from './components/Caddy.vue';
 </script>
 
 <template>
   <RouterView />
+  <Caddy/>
   
-  <!-- Engagements CTR -->
   <div class="container commitment-ctr">
     <div class="row order-informations">
       <h4>Nos engagements</h4>

@@ -1,11 +1,6 @@
 <script>
-import Caddy from './Caddy.vue';
-
 export default {
-  components: { Caddy },
-  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Navbar',
-  components: {Caddy}
 }
 </script>
 
@@ -39,24 +34,12 @@ export default {
             <a class="nav-link" href="#contact">Contact</a>
           </li>
         </ul>
-        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-cart3"></i></button>
         <!-- <a class="nb-phone" href="tel:+33252634163"
           ><i class="fa bi bi-telephone-forward-fill fa-beat"></i> 02 52 63 41 63</a> -->
       </div>
     </div>
   </nav>
 
-
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Votre Panier</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <!-- //PANIER -->
-        <Caddy/>
-    </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>
