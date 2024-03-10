@@ -1,17 +1,27 @@
 <script>
-import { mapState, mapMutations } from 'vuex';
-
+import { mapGetters } from 'vuex';
 export default {
     name: "Caddy",
+    created() {
+        // Charger le panier depuis sessionStorage lors du chargement de l'application
+        this.$store.dispatch('loadCaddyFromSessionStorage');
+    },
     computed: {
-    ...mapState(['caddy']),
+    ...mapGetters(['getCaddy']),
+    caddy() {
+      return this.getCaddy
     },
-    methods: {
-        ...mapMutations(['removeFromCaddy']),
-        removeFromCaddy(index) {
-        this.removeFromCaddy(index);
+    },
+    methods:{
+        updateQuantity(index, newQuantity) {
+            this.$store.commit('updateQuantity', { articleIndex: index, newQuantity });
         },
-    },
+        removeFromCaddy(index) {
+            const indeX = index
+            this.$store.commit('removeFromCaddy', indeX);
+        }
+    }
+  
 }
 </script>
 
@@ -42,9 +52,10 @@ export default {
                             <!-- Boucle sur les articles pour les afficher dans le panier -->
                             <tr v-for="(article, index) in caddy" :key="index">
                                 <td>{{ article.name}}</td>
-                                <td> qty </td>
-                                <td>{{ article.price }}</td> <!-- Remplacer 'title' par le nom de la propriété contenant le titre de l'article -->
-                                <!-- Ajoutez d'autres colonnes pour les détails de l'article si nécessaire -->
+                                <td><input class="col-8" type="number" :value="article.quantity" @input="updateQuantity(index, $event.target.value)"> </td>
+                                <td>{{ article.price/100 }}</td>
+                                <td>{{ (article.price*article.quantity)/100 + "€"}}</td>
+                                <td><button @click="removeFromCaddy(index)" class="btn"><i class="bi bi-trash3"></i></button></td>
                             </tr>
                         </tbody>
                         

@@ -3,18 +3,13 @@ import Articles from '@/components/Articles.vue'
 import About from '../components/About.vue'
 import Banner from '../components/Banner.vue'
 import Navbar from '../components/Navbar.vue'
-import axios from 'axios'
 
-import { mapActions } from 'vuex';
+import { mapActions } from 'vuex'
 
 export default {
   components: { Navbar, Articles, About, Banner },
-  methods:{
+  methods: {
     ...mapActions(['addToCaddy']),
-    addToCaddy(article) {
-      this.addToCaddy(article)
-    },
-    
   }
 }
 </script>

@@ -1,6 +1,8 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 import axios from 'axios'
+import { mapActions } from 'vuex'
+
 export default {
     name: "ProductSheet",
     data(){
@@ -13,6 +15,7 @@ export default {
         this.loadDetails()
     },
     methods:{
+        ...mapActions(['addToCaddy']),
         loadDetails(){
             const articleId = this.$route.params.id
             axios.get('http://localhost:3000/api/cameras/' + articleId)
@@ -92,7 +95,7 @@ export default {
                 <div class="row btn-shop">
                     <input type="number" class="col-2 qty" id="inputQty" name="inputQty" value="1">
 
-                    <button class="btn col-6">Ajouter au panier</button>
+                    <button @click="addToCaddy(article)" class="btn col-6">Ajouter au panier</button>
                 </div>
             </div>
         </div>

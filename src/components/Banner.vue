@@ -33,8 +33,8 @@ export default {
 <template>
   <div class="container-fluid banner-ctr">
     <div class="row news">
-      <div id="camera" class="col-lg-6 camera bckgd"></div>
-      <div class="col-lg-3 dscpt">
+      <div id="camera" class="col-md-6 col-lg-6 camera bckgd"></div>
+      <div class="col-md-6 col-lg-3 dscpt">
         <h2>ORINOCO XM-T2</h2>
         <button class="btn"><span>DISCOVER NOW!</span></button>
       </div>
@@ -171,6 +171,22 @@ export default {
       .infos{
         bottom: 25px;
         width: 100%;
+        .column p{
+          font-size: smaller;
+          span{ font-size: large;}
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1400px) {
+  .banner-ctr{
+    height: max-content;
+
+    .news{
+      .infos{
+        bottom: -140px;
         .column p{
           font-size: smaller;
           span{ font-size: large;}
