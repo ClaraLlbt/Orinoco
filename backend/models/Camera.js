@@ -4,7 +4,7 @@ const cameras = [
       "35mm 1.4",
       "50mm 1.6"
     ],
-    "_id": "5be1ed3f1c9d44000030b061",
+    "id": "0",
     "name": "Zurss 50S",
     "price": 49900,
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -16,7 +16,7 @@ const cameras = [
       "60mm 2.8",
       "24-60mm 2.8/4.5"
     ],
-    "_id": "5be1ef211c9d44000030b062",
+    "id": "1",
     "name": "Hirsch 400DTS",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "price": 309900,
@@ -26,7 +26,7 @@ const cameras = [
     "lenses": [
       "25mm 4.5"
     ],
-    "_id": "5be9bc241c9d440000a730e7",
+    "id": "2",
     "name": "Franck JS 105",
     "price": 209900,
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -37,7 +37,7 @@ const cameras = [
       "50mm 1.7",
       "35mm 1.4"
     ],
-    "_id": "5be9c4471c9d440000a730e8",
+    "id": "3",
     "name": "Kuros TTS",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "price": 159900,
@@ -49,7 +49,7 @@ const cameras = [
       "35mm 1.8",
       "28-200mm 2.8/4.5"
     ],
-    "_id": "5be9c4c71c9d440000a730e9",
+    "id": "4",
     "name": "Katatone",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "price": 59900,
@@ -64,7 +64,7 @@ exports.find = () => {
 exports.findById = (id) => {
   return new Promise((resolve, reject) =>
     resolve(JSON.parse(JSON.stringify(cameras)).find(camera =>
-      camera._id == id)
+      camera.id == id)
     )
   );
 }

@@ -1,6 +1,8 @@
 @import './base.css';
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&display=swap');
-
+body{
+  overflow: initial !important;
+}
 #app {
   width: 100%;
   margin: 0 auto;

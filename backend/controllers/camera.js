@@ -18,19 +18,17 @@ exports.getAllCameras = (req, res, next) => {
 };
 
 exports.getOneCamera = (req, res, next) => {
-  Camera.findById(req.params.id).then(
-    (camera) => {
+  Camera.findById(req.params.id)
+  .then((camera) => {
       if (!camera) {
         return res.status(404).send(new Error('Camera not found!'));
       }
       camera.imageUrl = req.protocol + '://' + req.get('host') + '/images/' + camera.imageUrl;
       res.status(200).json(camera);
     }
-  ).catch(
-    () => {
-      res.status(500).send(new Error('Database error!'));
-    }
-  )
+  ).catch((error) => {
+    return res.status(500).json({error : error})
+  })
 };
 
 /**

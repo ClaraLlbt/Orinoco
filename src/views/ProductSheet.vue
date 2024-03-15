@@ -2,6 +2,8 @@
 import Navbar from '@/components/Navbar.vue'
 import axios from 'axios'
 import { mapActions } from 'vuex'
+import FooterVue from '@/components/FooterVue.vue'
+import Caddy from '@/components/Caddy.vue'
 
 export default {
     name: "ProductSheet",
@@ -10,7 +12,7 @@ export default {
             article: {}
         }
     },
-    components:{ Navbar},
+    components:{ Navbar, FooterVue, Caddy},
     mounted(){
         this.loadDetails()
     },
@@ -18,12 +20,13 @@ export default {
         ...mapActions(['addToCaddy']),
         loadDetails(){
             const articleId = this.$route.params.id
+            console.log(articleId);
             axios.get('http://localhost:3000/api/cameras/' + articleId)
             .then((res)=>{
                 this.article = res.data
             })
-            .catch((err) => {
-                console.log(err);
+            .catch((error) => {
+                console.log(error);
             })
         },
         returnBack(){
@@ -35,6 +38,7 @@ export default {
 
 <template>
     <Navbar/>
+    <Caddy/>
     <div class="container productsheet-ctr">
         <div class="row productsheet">
             <div class="col-12 btn-back">
@@ -101,6 +105,7 @@ export default {
         </div>
     </div>
 
+    <FooterVue/>
     
 </template>
 

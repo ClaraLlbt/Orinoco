@@ -14,6 +14,11 @@ const router = createRouter({
       name: 'ProductSheet',
       component: () => import('../views/ProductSheet.vue'),
     },
+    {
+      path: '/checkout',
+      name: 'Checkout',
+      component: () => import('../views/Checkout.vue'),
+    },
   ],
   scrollBehavior (to, from, savedPosition) {
     // Si l'utilisateur revient en arrière, utilisez la position sauvegardée
