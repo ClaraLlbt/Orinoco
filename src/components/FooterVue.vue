@@ -9,8 +9,8 @@ export default {
     <div class="row order-informations">
       <h4>Nos engagements</h4>
       <div class="infos col-12">
-        <div class="icon col-2"><i class="bi bi-box-seam"></i></div>
-        <span class="txt col-10">
+        <div class="icon col-12 col-md-2"><i class="bi bi-box-seam"></i></div>
+        <span class="txt col-12 col-md-10">
           <h5>Service de livraison Rapide</h5>
           Nous garantissons une livraison rapide et efficace de vos produits, 
           vous assurant ainsi une satisfaction immédiate. Avec notre service, 
@@ -18,8 +18,8 @@ export default {
           répondant ainsi à vos besoins avec précision et rapidité.</span>
       </div>
       <div class="infos col-12">
-        <div class="col-2 icon"><i class="bi bi-telephone-outbound"></i></div> 
-        <span>
+        <div class="col-12 col-md-2 icon"><i class="bi bi-telephone-outbound"></i></div> 
+        <span class="txt col-12 col-md-10">
           <h5>Service Client</h5>
           Notre équipe dévouée de service client est disponible pour répondre à toutes vos questions 
           et résoudre vos problèmes rapidement et efficacement. 
@@ -27,8 +27,8 @@ export default {
           pour vous offrir un soutien optimal tout au long de la semaine.</span>
       </div>
       <div class="infos col-12">
-        <div class="icon col-2"><i class="bi bi-credit-card"></i></div>
-        <span class="txt col-10">
+        <div class="icon col-2 col-md-2"><i class="bi bi-credit-card"></i></div>
+        <span class="txt col-12 col-md-10">
           <h5>Paiements sécurisés</h5>
           Nous vous offrons des paiements sécurisés et fiables 
           pour garantir la protection de vos informations personnelles et financières. 
@@ -40,7 +40,7 @@ export default {
 
   <footer class="container-fluid footer-ctr">
     <div class="row networks">
-      <h4 class="col-2">Nous suivre</h4>
+      <h4 class="col-5 col-md-2">Nous suivre</h4>
       <div class="col icons">
         <button class="btn"><i class="bi bi-facebook"></i></button>
         <button class="btn"><i class="bi bi-youtube"></i></button>
@@ -48,8 +48,8 @@ export default {
       </div>
     </div>
     <div class="row footer-infos">
-      <div class="col-8 links">
-        <div class="col-4">
+      <div class="col-12 col-md-8 links">
+        <div class="col-6 col-md-4">
           <h5>Informations</h5>
           <ul>
             <li class="link">Délais et coût de livraison</li>
@@ -58,7 +58,7 @@ export default {
             <li class="link">Mentions légales</li>
           </ul>
         </div>
-        <div class="col-4">
+        <div class="col-6 col-md-4">
           <h5>Mon compte</h5>
           <ul>
             <li class="link">Mes commandes</li>
@@ -68,7 +68,7 @@ export default {
         </div>
 
       </div>
-      <div class="col-4">
+      <div class="col-12 col-md-4">
         <h5>Contact</h5>
         <ul>
           <li class="link"><i class="bi bi-envelope-at"></i> contact@gmail.com</li>
@@ -95,6 +95,9 @@ export default {
       align-items: center;
       padding: 0;
       margin: 10px 0;
+      .txt{
+        h5{ font-weight: bold;}
+      }
       .icon{
         font-size: xxx-large;
         text-align: center;
@@ -134,6 +137,31 @@ footer {
   ul{
     list-style: none;
     padding: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .commitment-ctr{
+    h4{ 
+      padding-left: 0;
+      font-weight: bold;
+    }
+    .order-informations{
+      padding: 20px;
+      text-align: center;
+      margin: 50px 0;
+      .infos{
+        flex-direction: column;
+        .icon{ padding: 20px 0;}
+      }
+    }
+  }
+  footer{
+    .row{ width: 100%;}
+    .footer-infos{
+      flex-direction: column;
+      .links div{ padding: 10px;}
+    }
   }
 }
 </style>

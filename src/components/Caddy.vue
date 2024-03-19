@@ -168,4 +168,13 @@ export default {
         color: white;
     }
 }
+
+@media screen and (max-width: 768px) {
+    #Caddy{
+        right: auto;
+        left: 25px;
+        font-size: xx-large;
+        z-index: 2;
+    }
+}
 </style>

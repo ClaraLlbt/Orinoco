@@ -83,4 +83,17 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .navbar{
+    .container-fluid {
+      padding: 10px;
+      .navbar-collapse ul {
+        width: auto;
+        flex-direction: row;
+        
+      }
+    }
+  }
+}
 </style>
