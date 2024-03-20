@@ -20,6 +20,7 @@ const router = createRouter({
       component: () => import('../views/Checkout.vue'),
     },
   ],
+  base: 'https://clarallbt.github.io/Orinoco/',
   scrollBehavior (to, from, savedPosition) {
     // Si l'utilisateur revient en arrière, utilisez la position sauvegardée
     if (savedPosition) {

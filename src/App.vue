@@ -1,6 +1,5 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import Caddy from './components/Caddy.vue';
 </script>
 
 <template>
