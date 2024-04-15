@@ -6,25 +6,21 @@ export default {
   },
   methods:{
     animations(){
-      const cameraHover = document.getElementById('camera')
+      const bannerCtr = document.querySelector('.banner-ctr')
       const cls = document.getElementsByClassName('column')
-      const totalColumns = cls.length;
 
-      cameraHover.addEventListener('mouseover', () => {
-        Array.from(cls).forEach((cln, index) => {
-          setTimeout(() => {
-              cln.classList.add('hvr') // Ajoutez une classe CSS pour déclencher l'animation
-          }, 300 * index); // Appliquez un délai de 0.5 seconde multiplié par l'index de la carte
-        });
+      document.addEventListener('scroll', () => {
+        const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+        const topElementToTopViewport = bannerCtr.getBoundingClientRect().top
 
-      })
-      cameraHover.addEventListener('mouseout', () => {
+        if (scrollTop > (scrollTop + topElementToTopViewport).toFixed() - clientHeight * 0) {
           Array.from(cls).forEach((cln, index) => {
-              setTimeout(() => {
-                cln.classList.remove('hvr'); // Faites disparaître les éléments avec une opacité de 0
-              }, 300 * (totalColumns - index)); // Appliquez un délai de 0.5 seconde multiplié par l'index de l'élément
+            setTimeout(() => {
+                cln.classList.add('hvr') // Ajoutez une classe CSS pour déclencher l'animation
+            }, 300 * index); // Appliquez un délai de 0.5 seconde multiplié par l'index de la carte
           });
-      });
+        }
+      })
     }
   }
 }
@@ -35,17 +31,18 @@ export default {
     <div class="row news">
       <div id="camera" class="col-md-6 col-lg-6 camera bckgd"></div>
       <div class="col-md-6 col-lg-3 dscpt">
+        <h1>Découvrez le tout nouveau</h1>
         <h2>ORINOCO XM-T2</h2>
         <button class="btn"><span>DISCOVER NOW!</span></button>
       </div>
       <div class="row infos">
-          <div class="col-2 column"><i class="bi bi-camera-reels"></i><p>VIDEO FULL HD</p></div>
-          <div class="col-2 column"><p>Résolution <span>24,5 MP</span></p></div>
-          <div class="col-2 column">
+          <div class="col-2 col-md-2 column"><i class="bi bi-camera-reels"></i><p>VIDEO FULL HD</p></div>
+          <div class="col-2 col-md-2 column"><p>Résolution <span>24,5 MP</span></p></div>
+          <div class="col-2 col-md-2 column">
             <p><span>ISO</span> min100</p>
             <p>max51600</p>
           </div>
-          <div class="col-2 column"><i class="bi bi-wifi"></i><p>WIFI</p></div>
+          <div class="col-2 col-md-2 column"><i class="bi bi-wifi"></i><p>WIFI</p></div>
         </div>
     </div>
   </div>
@@ -61,6 +58,8 @@ export default {
     justify-content: center;
     text-align: center;
     height: 100%;
+    align-content: center;
+    padding: 50px 0;
     .bckgd {
       background: url('../assets/images/camera3.png');
       width: 600px;
@@ -121,10 +120,7 @@ export default {
     }
     .infos{
         justify-content: space-evenly;
-        margin-bottom: 35px;
         width: 50%;
-        position: absolute;
-        bottom: 80px;
         .column{
           opacity: 0;
           padding: 10px;
@@ -151,6 +147,9 @@ export default {
           opacity: 1;
           transform: translateY(0px);
           transition: all 1s ease;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
       }
   }
@@ -158,41 +157,5 @@ export default {
   transform: translate(-20px, -20px); /* Ajustez les valeurs selon vos préférences */
   }
 
-}
-
-@media screen and (max-width: 768px) {
-  .banner-ctr{
-    .news{
-      flex-direction: column-reverse;
-      .bckgd{
-        width: 300px;
-        height: 300px;
-      }
-      .infos{
-        bottom: 25px;
-        width: 100%;
-        .column p{
-          font-size: smaller;
-          span{ font-size: large;}
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1400px) {
-  .banner-ctr{
-    height: max-content;
-
-    .news{
-      .infos{
-        bottom: -140px;
-        .column p{
-          font-size: smaller;
-          span{ font-size: large;}
-        }
-      }
-    }
-  }
 }
 </style>

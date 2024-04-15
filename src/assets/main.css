@@ -10,22 +10,88 @@ body{
   font-weight: normal;
 }
 
+.navbar-brand{
+  background-image: url(/Orinoco/src/assets/images/logopng.png);
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+}
 a, .nav-link{
   text-decoration: none;
-  color: #00003A;
   transition: 0.4s;
-}
-li{ color:white;}
-a:hover, .nav-link:hover{ 
-  color: white;
 }
 
 @media (hover: hover) {
-  a:hover {
+  .nav-link:hover {
     background-color: #E20000;
     color: white;
     transition: 0.4s;
   }
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar{ background: #000035;}
+  .navbar-brand{
+    background-image: url('./images/dark-logo.png');
+  }
+ .nav-link{ color: white;}
+ .nav-link:hover{ background-color: #263B6D;}
+ .articles .card .card-body{ 
+  border-color: #263B6D;
+  color: white;
+  }
+  .articles .card .btns .btn{ background: #263B6D;}
+  .commitment-ctr .order-informations{ background: #263B6D;}
+
+  .text-muted, .list-group-item-action{ color: lightslategray !important}
+  input{ background: none; color: white;}
+  .offcanvas{ background : #263B6D; color: #99C3FF;}
+  .navbar-toggler-icon{ color: #99C3FF!important}
+  .cart-summary{ background: none;}
+  .caddy { 
+    border: 1px solid #99C3FF;
+    border-radius: 10px;
+  }
+  .table th{ font-weight: 900;}
+  .table th, .table td{
+    background: none;
+    color: white;
+    border: none;
+  }
+  .delivery-method .card, .payement-method .card{ 
+    background-color: #263B6D;
+    color: white;
+  }
+  .delivery-method .card .btn{ color: white;}
+  .delivery-method .card.select, .payement-method .card.select{ 
+    background-color:  #1553AA!important;
+    color: white;
+  }
+  .checkout-summary{
+    background: #263B6D!important;
+  }
+
+  .form-control{
+    background: none;
+    border: none;
+    border-bottom: 1px solid lightblue;
+    color: #4B739E;
+  }
+  .form-control input{
+    color: #4B739E;
+  }
+  .form-control:focus{
+    color: #4B739E;
+    background-color: none;
+  }
+  .form-control::placeholder{
+    color: #4B739E;
+  }
+
+  .checkout-ctr .Pment-confirmationc-ctr .card{ background:  #1553AA !important;}
 }
 
 @media (min-width: 1024px) {
@@ -33,10 +99,4 @@ a:hover, .nav-link:hover{
     display: flex;
     place-items: center;
   }
-
-  /* #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  } */
 }

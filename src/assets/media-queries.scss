@@ -1,0 +1,195 @@
+/******* MOBILE *******/
+@media screen and (max-width: 768px) {
+  /* Styles pour les écrans de 768px de largeur ou moins */
+  .commitment-ctr{
+    h4{ 
+      padding-left: 0 !important;
+      font-weight: bold;
+    }
+    .order-informations{
+      padding: 20px;
+      text-align: center;
+      margin: 50px 0;
+      .infos{
+        flex-direction: column;
+        .icon{ padding: 20px 0;}
+      }
+    }
+  }
+  footer{
+    .row{ width: 100%;}
+    .networks{
+      text-align: center;
+      h4{ font-size: large;}
+      a i{ font-size: x-large!important;;}
+    }
+    .footer-infos{
+      flex-direction: column;
+      .links div{ 
+        padding: 10px;
+        font-size: 11px;
+      }
+    }
+    .contact{
+      text-align: center;
+      position: relative;
+      padding: 15px 0;
+      &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: white;
+        opacity: 25%;
+      }
+    }
+  }
+  #shop{
+    .card .card-body{
+      h2{
+        font-size: large;
+        font-weight: bold;
+      }
+      p{ 
+        font-size: 13px;
+        padding: 10px 0;
+      }
+    }
+    .btns{
+      bottom: -38px;
+    }
+  }
+  .productsheet-ctr .productsheet {
+    .btn-back{ padding: 0 15px;}
+    .imgs img{
+      width: 100%;
+    }
+  }
+
+  .checkout-ctr{
+    .order-validate{
+      .client-form{
+        .form-order, .delivery-method, .payement-method{
+          width: 100%;
+          margin: auto;
+        }
+        .payement-method .methods{
+          .card{
+            margin: 10px 0;
+            flex-direction: row;
+            align-items: center;
+            p{ margin: 0 15px;}
+          }
+        }
+        .order{
+          margin-top: 50px;
+        }
+      }
+    }
+    .payement-method h2 img{
+      width: 25%;
+    }
+    .Pment-confirmationc-ctr .card{
+      padding: 40px!important;
+      h1{ 
+        font-size: large;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1023px) {
+  /* Styles pour les écrans de 769px à 1024px de largeur */
+  .navbar{
+    .container-fluid {
+      position: relative;
+      padding: 10px;
+      justify-content: flex-end;
+      .navbar-collapse {
+        .navbar-brand{ 
+          position: absolute;
+          top: 0;
+          left: 10px;
+          width: 60px;
+        }
+        ul {
+          position: initial;
+          width: auto;
+          flex-direction: row;
+          position: initial;
+          justify-content: space-evenly;
+          li{ font-size: larger;}
+          li a:hover{
+            background: none;
+            color: #E20000;
+          }
+          .nav-icons {
+            position: initial;
+            .nav-item{
+              font-size: large;
+              margin:0 10px;
+            }
+          }
+        
+        }
+      }
+     
+    }
+  }
+  .banner-ctr{
+    .news{
+      .bckgd{
+        width: 300px;
+        height: 300px;
+        order: 1;
+      }
+      .infos{
+        bottom: 60px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        order: 2;
+        
+        .column {
+          padding: 5px;
+          p{
+            font-size: 10px;
+            span{ font-size: small;}
+          }
+        }
+      }
+    }
+  }
+
+  .productsheet-ctr{
+    margin: 0 auto !important;
+    display: block;
+    .productsheet{
+      flex-direction: column;
+    }
+  }
+  .checkout-ctr .header div{
+    font-size: small;
+  }
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1400px) {
+  .banner-ctr{
+    height: max-content;
+
+    .news{
+      .infos{
+        bottom: -140px;
+        .column p{
+          font-size: smaller;
+          span{ font-size: large;}
+        }
+      }
+    }
+  }
+}

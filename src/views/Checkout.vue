@@ -94,45 +94,39 @@ export default {
 <template>
     <div class="container checkout-ctr">
         <div class="row header">
-            <img class="logo col-2" src="/src/assets/images/logopng.png" width="200">
-            <div class="col-4"><i class="bi bi-file-lock2"></i> Paiement sécurisé</div>    
+            <a class="navbar-brand" href="#"></a>
+            <div class="col-8 col-lg-4"><i class="bi bi-file-lock2"></i> Paiement sécurisé</div>    
         </div>
         <hr>
         <div v-show="!Pmentconfirmation" class="row order-validate">
-            <div class="col-7">
+            <div class="col-12 col-md-7 client-form">
                 <div class="row form-order">
                     <h2><span class="number"><i class="bi bi-1-circle"></i></span> Vos informations</h2>
                     <form action="submit" class="form" method="post" id="client-form">
                         <div class="row">
                             <div class="col-6">
-                                <label for="exampleInputName" class="form-label">Nom</label>
-                                <input type="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" required autocomplete="">
+                                <input type="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Nom" required autocomplete="">
                             </div>
                             <div class="col-6">
-                                <label for="exampleInputLastname" class="form-label">Prénom</label>
-                                <input type="lastname" class="form-control" id="exampleInputLastname" aria-describedby="lastnameHelp" required>
+                                <input type="lastname" class="form-control" id="exampleInputLastname" placeholder="Prénom" aria-describedby="lastnameHelp" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <label for="exampleInputAddress" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="exampleInputAddress" aria-describedby="addressHelp" required autocomplete="address">
+                                <input type="text" class="form-control" id="exampleInputAddress" placeholder="Adresse" aria-describedby="addressHelp" required autocomplete="address">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <label for="exampleInputEexampleInputCitymail1" class="form-label">Ville</label>
-                                <input type="text" class="form-control" id="exampleInputCity" aria-describedby="cityHelp" required>
+                                <input type="text" class="form-control" id="exampleInputCity" placeholder="Ville" aria-describedby="cityHelp" required>
                             </div>
                             <div class="col-6">
-                                <label for="exampleInputCP" class="form-label">Code postal</label>
-                                <input type="text" class="form-control" id="exampleInputCP" aria-describedby="cpHelp" required>
+                                <input type="text" class="form-control" id="exampleInputCP" placeholder="CP" aria-describedby="cpHelp" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <label for="exampleInputEmail1" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required autocomplete="email">
+                                <input type="email" class="form-control" placeholder="Adresse email" id="exampleInputEmail1" aria-describedby="emailHelp" required autocomplete="email">
                             </div>
                         </div>
                     </form>
@@ -168,7 +162,7 @@ export default {
                 <div class="row payement-method">
                     <h2><span class="number"><i class="bi bi-3-circle"></i></span> Mode de paiement <img src="/src/assets/images/cb-methods.png" width="200" alt=""></h2>
                     <div class="row methods">
-                        <div class="col-4">
+                        <div class="col-12 col-md-4">
                                 <div class="card" id="pment-card">
                                     <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio1" data-target="pment-card">
                                     <p><i class="bi bi-credit-card-fill"></i></p>
@@ -176,14 +170,14 @@ export default {
                                 </div>
                             
                         </div>
-                        <div class="col-4">
+                        <div class="col-12 col-md-4">
                             <div class="card" id="pment-card2">
                                 <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio2" data-target="pment-card2">
                                 <p><i class="bi bi-paypal"></i> </p>
                                 <p>Paypal</p>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-12 col-md-4">
                             <div class="card" id="pment-card3">
                                 <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio3" data-target="pment-card3">
 
@@ -194,7 +188,7 @@ export default {
                 </div>
             </div>
 
-            <div class="col-4 order">
+            <div class="col order">
                 <div class="order-fixed">
                     <h3>Récapitulatif de la commande</h3>
                     <div class="checkout-summary">
@@ -252,7 +246,7 @@ export default {
 
         <hr v-show="!Pmentconfirmation">
         <div v-show="!Pmentconfirmation" class="footer row">
-            <div class="col-6">Données personnelles protégées</div>
+            <div class="col-12 col-lg-6">Données personnelles protégées</div>
         </div>
     </div>
   
@@ -298,7 +292,9 @@ export default {
         }
         .delivery-method, .payement-method{
             .card.select{
-                background: #f8c5c5;
+                background: #263B6D;
+                color: white;
+                .btn{color: white;}
             }
         }
         .delivery-method{
@@ -349,6 +345,7 @@ export default {
             }
         }
     }
+    .form-order .form .row { margin: 20px 0;}
     .order{
         position: relative;
         .order-fixed{
@@ -362,14 +359,34 @@ export default {
                     justify-content: space-between;
                     span{ font-size: large;}
                     .btn{
+                        padding: 10px 20px;
+                        border-radius: 7px;
+                        border: 1px solid #1553AA;
+                        font-size: 14px;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        letter-spacing: 2px;
+                        background: transparent;
+                        overflow: hidden;
+                        box-shadow: 0 0 0 0 transparent;
+                        -webkit-transition: all 0.2s ease-in;
+                        -moz-transition: all 0.2s ease-in;
+                        transition: all 0.2s ease-in;
                         width: 100%;
-                        border: #E20000 2px solid;
-                        font-weight: bold;
-                        &:hover{
-                            background: #E20000;
-                            transition: all 0.5s ease-in-out;
-                            color: white;
+                        position: relative; 
+                        font-weight: bold; 
+                        color: rgb(61, 106, 255);
+        
 
+                        &:hover{
+                            background: #1553AA;
+                            box-shadow: 0 0 7px #1553AA;
+                            -webkit-transition: all 0.2s ease-out;
+                            -moz-transition: all 0.2s ease-out;
+                            transition: all 0.2s ease-out;
+                            color: white;
+                            a{color: white;}
+                            
                         }
                     }
                 }

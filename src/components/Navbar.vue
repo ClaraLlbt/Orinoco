@@ -1,29 +1,48 @@
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Navbar',
+  mounted(){
+    const navbar = document.querySelector('.navbar')
+    console.log(navbar)
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      navbar.classList.add('navbar-dark')
+    }
+  },
+  computed: {
+        ...mapGetters(['getCaddy']),
+        caddy() {
+            return this.getCaddy  
+        },
+        // Propriété calculée pour obtenir le nombre total d'articles dans le caddie
+        caddyLength() {
+            return this.$store.getters.getCaddy.length;
+        }
+    },
+    watch: {
+    // Surveille les changements dans le caddie et met à jour l'attribut data-count
+    caddyLength(newValue) {
+      const btnCaddy = document.getElementById('Caddy');
+      if (newValue > 0) {
+        btnCaddy.setAttribute('data-count', newValue);
+      } else {
+        btnCaddy.removeAttribute('data-count');
+      }
+    }
+  }
 }
 </script>
 
 <template>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#"><img src="../assets/images/logopng.png" alt="" srcset="" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="navbar-collapse collapse" id="navbarSupportedContent">
+        <a class="navbar-brand" href="#"></a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="#about">About</a>
           </li>
@@ -31,33 +50,32 @@ export default {
             <a class="nav-link" href="#shop">Shop</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="#footerNav">Contact</a>
           </li>
+          <li class="item-right nav-icons">
+            <a class="nav-item btn" href=""><i class="bi bi-person"></i></a>
+            <a class="nav-item btn" id="Caddy" :class="{'nb-articles': caddyLength > 0 }" :data-count="caddyLength" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-cart3"></i></a>
+          </li>
+
         </ul>
-        <!-- <a class="nb-phone" href="tel:+33252634163"
-          ><i class="fa bi bi-telephone-forward-fill fa-beat"></i> 02 52 63 41 63</a> -->
       </div>
     </div>
   </nav>
 
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .navbar {
   padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  background: white;
   .container-fluid {
     justify-content: flex-end;
     .navbar-collapse {
       text-align: right;
-      .navbar-brand {
-        padding: 0;
-        margin: 0;
-        img {
-          width: 28%;
-          float: left;
-        }
-        &:hover{background: none;}
-      }
       ul {
         position: absolute;
         width: 99%;
@@ -66,32 +84,35 @@ export default {
           font-size: x-large;
           
         }
-      }
-      .btn{
-        position: absolute;
-        right: 1%;
-        font-size: xx-large;
-      }
-      a.nb-phone {
-        color: #E20000;
-        position: absolute;
-        right: 5%;
-        &:hover{
-          color: white;
-        }
-      }
-    }
-  }
-}
+        .nav-icons{
+          position: absolute;
+          right: 15px;
+          .nav-item{ 
+            font-size: xx-large;
+            color: rgb(61, 106, 255);
+          }
+          #Caddy{position: relative;}
+          #Caddy.nb-articles{
+            &::before{
+                content: attr(data-count);
+                position: absolute;
+                right: 0;
+                top: 0px;
+                background: #E20000;
+                color: white;
+                height: 20px;
+                border-radius: 100%;
+                width: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: small;
+                font-weight: 900
 
-@media screen and (max-width: 768px) {
-  .navbar{
-    .container-fluid {
-      padding: 10px;
-      .navbar-collapse ul {
-        width: auto;
-        flex-direction: row;
-        
+            }
+        }
+          
+        }
       }
     }
   }

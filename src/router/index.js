@@ -12,16 +12,16 @@ const router = createRouter({
     {
       path: '/article/:id',
       name: 'ProductSheet',
-      component: () => import('../views/ProductSheet.vue'),
+      component: () => import('../views/ProductSheet.vue')
     },
     {
       path: '/checkout',
       name: 'Checkout',
-      component: () => import('../views/Checkout.vue'),
-    },
+      component: () => import('../views/Checkout.vue')
+    }
   ],
-  base: 'https://clarallbt.github.io/Orinoco/',
-  scrollBehavior (to, from, savedPosition) {
+  base: 'https://clarallbt.github.io/Groupomania/',
+  scrollBehavior(to, from, savedPosition) {
     // Si l'utilisateur revient en arrière, utilisez la position sauvegardée
     if (savedPosition) {
       return savedPosition

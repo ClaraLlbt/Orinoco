@@ -48,7 +48,6 @@ export default {
 
 <style lang="scss">
 .about-ctr {
-  background-color: white;
   padding: 100px 0;
   h1 {
     text-align: center;
@@ -82,6 +81,8 @@ export default {
 @media screen and (max-width: 768px) {
   .about-ctr{
     padding: 20px 0;
+    margin-top: 30px;
   }
+  .about-ctr .history{ width: auto}
 }
 </style>

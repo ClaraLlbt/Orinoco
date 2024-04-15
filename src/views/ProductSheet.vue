@@ -15,13 +15,22 @@ export default {
     components:{ Navbar, FooterVue, Caddy},
     mounted(){
         this.loadDetails()
+        const addBtn = document.querySelector('.add-btn')
+        addBtn.addEventListener('click', () =>{
+            addBtn.innerHTML = "Articlé ajouté au panier"
+            setTimeout(() => {
+            // Remettre le texte du bouton à sa valeur par défaut après 30 secondes
+            
+            addBtn.innerHTML = 'Ajouter au panier';
+          }, 800); // 30 secondes en millisecondes
+        })
     },
     methods:{
         ...mapActions(['addToCaddy']),
         loadDetails(){
             const articleId = this.$route.params.id
             console.log(articleId);
-            axios.get('http://localhost:3000/api/cameras/' + articleId)
+            axios.get('https://dito-pro.direct.quickconnect.to:3005/api/cameras/' + articleId)
             .then((res)=>{
                 this.article = res.data
             })
@@ -31,7 +40,7 @@ export default {
         },
         returnBack(){
             this.$router.go(-1);
-        }
+        },
     }
 }
 </script>
@@ -44,10 +53,10 @@ export default {
             <div class="col-12 btn-back">
                 <button @click="returnBack()" class="btn"><i class="bi bi-caret-left-fill"></i> Retour</button>
             </div>
-            <div class="col-6 imgs">
+            <div class="col-12 col-xl-6 imgs">
                 <img :src="article.imageUrl" alt="">
             </div>
-            <div class="col-6 dscpt">
+            <div class="col-12 col-xl-6 dscpt">
                 <span class="row title">
                     <h2>{{ article.name }}</h2>
                     <p>réf. produit: {{  article._id }}</p>
@@ -99,7 +108,7 @@ export default {
                 <div class="row btn-shop">
                     <input type="number" class="col-2 qty" id="inputQty" name="inputQty" value="1">
 
-                    <button @click="addToCaddy(article)" class="btn col-6">Ajouter au panier</button>
+                    <button @click="addToCaddy(article)" class="btn add-btn col-6">Ajouter au panier</button>
                 </div>
             </div>
         </div>
@@ -171,10 +180,32 @@ export default {
                     border-radius: 50px;
                 }
                 .btn{
-                    background: #00003A;
-                    border-radius: 0;
-                    color: white;
-                    font-weight: bold;
+                    padding: 10px 20px;
+                    border-radius: 7px;
+                    border: 1px solid #1553AA;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    background: transparent;
+                    overflow: hidden;
+                    box-shadow: 0 0 0 0 transparent;
+                    -webkit-transition: all 0.2s ease-in;
+                    -moz-transition: all 0.2s ease-in;
+                    transition: all 0.2s ease-in;
+                    position: relative;
+                    font-weight: bold; 
+                    color: rgb(61, 106, 255);
+                    &:hover{
+                        background: #1553AA;
+                        box-shadow: 0 0 7px #1553AA;
+                        -webkit-transition: all 0.2s ease-out;
+                        -moz-transition: all 0.2s ease-out;
+                        transition: all 0.2s ease-out;
+                        color: white;
+                        a{color: white;}
+                        
+                    }
                 }
             }
         }

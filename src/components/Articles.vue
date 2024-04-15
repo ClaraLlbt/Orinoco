@@ -12,7 +12,7 @@ export default{
     },
     methods:{
         getArticles(){
-            axios.get('http://localhost:3000/api/cameras')
+            axios.get('https://dito-pro.direct.quickconnect.to:3005/api/cameras')
             .then((res) =>{
                 this.articles = res.data
                 console.log(this.articles)

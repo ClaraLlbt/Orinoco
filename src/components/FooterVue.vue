@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div class="container commitment-ctr">
+  <div id="c" class="container commitment-ctr">
     <div class="row order-informations">
       <h4>Nos engagements</h4>
       <div class="infos col-12">
@@ -27,7 +27,7 @@ export default {
           pour vous offrir un soutien optimal tout au long de la semaine.</span>
       </div>
       <div class="infos col-12">
-        <div class="icon col-2 col-md-2"><i class="bi bi-credit-card"></i></div>
+        <div class="icon col-12 col-md-2"><i class="bi bi-credit-card"></i></div>
         <span class="txt col-12 col-md-10">
           <h5>Paiements sécurisés</h5>
           Nous vous offrons des paiements sécurisés et fiables 
@@ -40,11 +40,11 @@ export default {
 
   <footer class="container-fluid footer-ctr">
     <div class="row networks">
-      <h4 class="col-5 col-md-2">Nous suivre</h4>
-      <div class="col icons">
-        <button class="btn"><i class="bi bi-facebook"></i></button>
-        <button class="btn"><i class="bi bi-youtube"></i></button>
-        <button class="btn"><i class="bi bi-linkedin"></i></button>
+      <h4 class="col-5 col-md-3 col-lg-2">Nous suivre</h4>
+      <div class="col col-md col-lg icons">
+        <a class="btn"><i class="bi bi-facebook"></i></a>
+        <a class="btn"><i class="bi bi-youtube"></i></a>
+        <a class="btn"><i class="bi bi-linkedin"></i></a>
       </div>
     </div>
     <div class="row footer-infos">
@@ -68,7 +68,7 @@ export default {
         </div>
 
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4 contact">
         <h5>Contact</h5>
         <ul>
           <li class="link"><i class="bi bi-envelope-at"></i> contact@gmail.com</li>
@@ -124,9 +124,11 @@ footer {
   }
   .networks{
     align-items: center;
-    .icons i{
+    .icons {
+      i{
       color:white;
       font-size: xx-large;
+      }
     }
   }
   .footer-infos{
@@ -140,28 +142,4 @@ footer {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .commitment-ctr{
-    h4{ 
-      padding-left: 0;
-      font-weight: bold;
-    }
-    .order-informations{
-      padding: 20px;
-      text-align: center;
-      margin: 50px 0;
-      .infos{
-        flex-direction: column;
-        .icon{ padding: 20px 0;}
-      }
-    }
-  }
-  footer{
-    .row{ width: 100%;}
-    .footer-infos{
-      flex-direction: column;
-      .links div{ padding: 10px;}
-    }
-  }
-}
 </style>

@@ -17,16 +17,15 @@ export default {
 </script>
 
 <template>
-  <header>
+  <header class="sticky-top">
     <Navbar />
-
-    <div id="home">
-      <Banner />
-    </div>
   </header>
 
   <main>
     <Caddy/>
+      
+    <Banner />
+    
     <About />
 
     <!-- Articles -->
@@ -51,14 +50,7 @@ export default {
 </template>
 
 <style lang="scss">
-.mvp-ribbon {
-  background: url('../assets/images/MVP.png');
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  z-index: 2;
-}
+
 
 .articles {
   display: flex;
@@ -67,6 +59,7 @@ export default {
     margin: 20px 0;
     border: none;
     position: relative;
+    background: none;
     .card-body{
       border: 4px solid #00003A;
       img{

@@ -7,8 +7,10 @@ export default {
         this.$store.dispatch('loadCaddyFromSessionStorage');
     },
     mounted(){
+        const bannerCtr = document.querySelector('.banner-ctr')
         const btnCaddy = document.getElementById('Caddy');
         const numArticles = this.getCaddy.length; // Récupérer le nombre d'articles dans le panier
+        
 
         if (numArticles > 0) {
             btnCaddy.classList.add('nb-articles');
@@ -24,22 +26,7 @@ export default {
         caddy() {
             return this.getCaddy  
         },
-        // Propriété calculée pour obtenir le nombre total d'articles dans le caddie
-        caddyLength() {
-            return this.$store.getters.getCaddy.length;
-        }
     },
-    watch: {
-    // Surveille les changements dans le caddie et met à jour l'attribut data-count
-    caddyLength(newValue) {
-      const btnCaddy = document.getElementById('Caddy');
-      if (newValue > 0) {
-        btnCaddy.setAttribute('data-count', newValue);
-      } else {
-        btnCaddy.removeAttribute('data-count');
-      }
-    }
-  },
     methods:{
         updateQuantity(index, newQuantity) {
             this.$store.commit('updateQuantity', { articleIndex: index, newQuantity });
@@ -64,8 +51,6 @@ export default {
 </script>
 
 <template>
-    <button id="Caddy" class="btn" :class="{'nb-articles': caddyLength > 0 }" :data-count="caddyLength" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-cart3"></i></button>
-
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasRightLabel">Mon Panier</h5>
@@ -106,7 +91,7 @@ export default {
                             <div class="table-line"><span>frais de livraison:</span><span>2,99€</span></div>
                         
                     </div>
-                    <button class="btn order"><router-link to="/checkout">Commander</router-link></button>
+                    <button class="btn order"><router-link to="/checkout" class="stretched-link">Commander</router-link></button>
                 </article>
             </div>
         </div> 
@@ -116,32 +101,6 @@ export default {
 </template>
 
 <style lang="scss">
-#Caddy{
-    color:#E20000;
-    position: fixed;
-    top: 25px;
-    right: 25px;
-    font-size: xxx-large;
-}
-#Caddy.nb-articles{
-    &::before{
-        content: attr(data-count);
-        position: absolute;
-        right: 0;
-        top: 0px;
-        background: #E20000;
-        color: white;
-        height: 20px;
-        border-radius: 100%;
-        width: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: small;
-        font-weight: 900
-
-    }
-}
 .cart-summary{
     background: #F3FAFC;
     padding: 10px;
@@ -156,25 +115,37 @@ export default {
     }
 }
 .btn.order{
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: 1px solid #1553AA;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
     width: 100%;
-    border: #E20000 2px solid;
-    a{font-weight: bold;}
+    position: relative;
+    a{
+        font-weight: bold; 
+        color: rgb(61, 106, 255);
+        width: 100%;
+    }
     &:hover{
-        background: #E20000;
-        transition: all 0.5s ease-in-out;
-    }
-    a:hover{
-        background: none;
+        background: #1553AA;
+        box-shadow: 0 0 7px #1553AA;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
         color: white;
+        a{color: white;}
+        
     }
+    
 }
 
-@media screen and (max-width: 768px) {
-    #Caddy{
-        right: auto;
-        left: 25px;
-        font-size: xx-large;
-        z-index: 2;
-    }
-}
 </style>
